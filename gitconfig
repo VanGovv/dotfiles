@@ -1,0 +1,40 @@
+[push]
+	default = current
+	followTags = true
+[log]
+	abbrevCommit = true
+	oneline = true
+	date = format:%d.%m.%y
+	mailmap = true
+[format]
+	pretty = %C(yellow)%h %C(green)%cd %C(blue)%<(7)%aN%C(red)%d%C(reset) %s
+[core]
+	excludesfile = ~/.gitignore
+[fetch]
+	prune = true
+[alias]
+	archiveBranch = "! f() { git fetch origin $1:$1; git branch -m $1 archive/$1; git push origin :$1 archive/$1; git branch -D archive/$1; }; f"
+	archiveB = "! f() { git fetch origin $1:$1; git branch -m $1 archive/$1; git push origin :$1 archive/$1; git branch -D archive/$1; }; f"
+	a = add
+	b = branch
+	c = commit
+	co = checkout
+	cp = cherry-pick
+	d = diff
+	f = fetch
+	l = log
+	m = merge
+	r = rebase
+	s = "! f() { git status; echo; git log -n 1; }; f"
+	aa = "! f() { git add --all; git commit --amend --no-edit; }; f"
+	aap = "! f() { git add --all; git commit --amend --no-edit; git push --force; }; f"
+	aapf = "! f() { git add --all; git commit --amend --no-edit; git push --force; }; f"
+	ac = "! f() { git add --all; git commit --message=\"$1\"; }; f"
+	acp = "! f() { git add --all; git commit --message=\"$1\"; git push; }; f"
+	pf = "! f() { git push --force; }; f"
+	cpf = "! f() { git commit --message=\"$1\"; git push --force; }; f"
+	acpf = "! f() { git commit --all --message=\"$1\"; git push --force; }; f"
+	amend = "! f() { git commit --amend; }; f"
+	mad = "! f() { git merge $1 --ff-only; git push; git branch -d $1; git push origin :$1; }; f"
+	wip = "! f() { msg=${1-WIP}; git commit --message=\"$msg\"; }; f"
+	awip = "! f() { git add --all; msg=${1-WIP}; git commit --message=\"$msg\"; }; f"
