@@ -25,6 +25,7 @@
 	l = log
 	m = merge
 	r = rebase
+	ds = "! f() { git diff $1~1..$1; }; f"
 	s = "! f() { git status; echo; git log -n 1; }; f"
 	aa = "! f() { git add --all; git commit --amend --no-edit; }; f"
 	aap = "! f() { git add --all; git commit --amend --no-edit; git push --force; }; f"
