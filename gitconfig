@@ -19,7 +19,7 @@
 	b = branch
 	c = commit
 	co = checkout
-	cp = cherry-pick
+	CP = cherry-pick
 	d = diff
 	f = fetch
 	l = log
@@ -33,6 +33,7 @@
 	ac = "! f() { git add --all; git commit --message=\"$1\"; }; f"
 	acp = "! f() { git add --all; git commit --message=\"$1\"; git push; }; f"
 	pf = "! f() { git push --force; }; f"
+	cp = "! f() { git commit --message=\"$1\"; git push; }; f"
 	cpf = "! f() { git commit --message=\"$1\"; git push --force; }; f"
 	acpf = "! f() { git commit --all --message=\"$1\"; git push --force; }; f"
 	amend = "! f() { git commit --amend; }; f"
