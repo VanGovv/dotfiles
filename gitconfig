@@ -19,6 +19,7 @@
 	b = branch
 	bl = for-each-ref refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short) %(color:green)%(committerdate:relative)  %(color:blue)%(committername)  %(color:reset)%(contents:subject)'
 	c = commit
+	cm = commit -m 
 	co = checkout
 	ch = cherry-pick
 	d = diff
