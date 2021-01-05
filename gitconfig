@@ -18,6 +18,8 @@
 	a = add
 	b = branch
 	bl = for-each-ref refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short) %(color:green)%(committerdate:relative)  %(color:blue)%(committername)  %(color:reset)%(contents:subject)'
+	blr = for-each-ref refs/remotes/ --format='%(HEAD) %(color:yellow)%(refname:short) %(color:green)%(committerdate:relative)  %(color:blue)%(committername)  %(color:reset)%(contents:subject)'
+	bla = for-each-ref refs/heads/ refs/remotes/ --format='%(HEAD) %(color:yellow)%(refname:short) %(color:green)%(committerdate:relative)  %(color:blue)%(committername)  %(color:reset)%(contents:subject)'
 	c = commit
 	cm = commit -m 
 	co = checkout
@@ -27,7 +29,7 @@
 	l = log
 	m = merge
 	r = rebase
-	ds = "! f() {ref=${1-HEAD}; git diff $ref~1..$ref; }; f"
+	ds = "! f() { ref=${1-HEAD}; git diff $ref~1..$ref; }; f"
 	s = "! f() { git status; echo; git log -n 1; }; f"
 	aa = "! f() { git add --all; git commit --amend --no-edit; }; f"
 	aap = "! f() { git add --all; git commit --amend --no-edit; git push --force; }; f"
