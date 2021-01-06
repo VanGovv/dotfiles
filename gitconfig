@@ -33,6 +33,7 @@
 	s = "! f() { git status; echo; git log -n 1; }; f"
 	aa = "! f() { git add --all; git commit --amend --no-edit; }; f"
 	aap = "! f() { git add --all; git commit --amend --no-edit; git push --force; }; f"
+	apf = "! f() { git commit --amend --no-edit; git push --force; }; f"
 	aapf = "! f() { git add --all; git commit --amend --no-edit; git push --force; }; f"
 	ac = "! f() { git add --all; git commit --message=\"$1\"; }; f"
 	acp = "! f() { git add --all; git commit --message=\"$1\"; git push; }; f"
