@@ -29,6 +29,7 @@
 	l = log
 	m = merge
 	r = rebase
+	ri = "! f() { git rebase -i ${1-HEAD~5}; }; f"
 	ds = "! f() { ref=${1-HEAD}; git diff $ref~1..$ref; }; f"
 	s = "! f() { git status; echo; git log -n 1; }; f"
 	aa = "! f() { git add --all; git commit --amend --no-edit; }; f"
