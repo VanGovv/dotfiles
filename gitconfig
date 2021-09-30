@@ -17,9 +17,9 @@
 	archiveB = "! f() { git fetch origin $1:$1; git branch -m $1 archive/$1; git push origin :$1 archive/$1; git branch -D archive/$1; }; f"
 	a = add
 	b = branch
-	bl = for-each-ref refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short) %(color:green)%(committerdate:relative)  %(color:blue)%(committername)  %(color:reset)%(contents:subject)'
-	blr = for-each-ref refs/remotes/ --format='%(HEAD) %(color:yellow)%(refname:short) %(color:green)%(committerdate:relative)  %(color:blue)%(committername)  %(color:reset)%(contents:subject)'
-	bla = for-each-ref refs/heads/ refs/remotes/ --format='%(HEAD) %(color:yellow)%(refname:short) %(color:green)%(committerdate:relative)  %(color:blue)%(committername)  %(color:reset)%(contents:subject)'
+	bl = for-each-ref refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short) %(color:green)%(committerdate:relative)  %(color:blue)%(committername)  %(color:reset)%(contents:subject)' --sort=committerdate
+	blr = for-each-ref refs/remotes/ --format='%(HEAD) %(color:yellow)%(refname:short) %(color:green)%(committerdate:relative)  %(color:blue)%(committername)  %(color:reset)%(contents:subject)' --sort=committerdate
+	bla = for-each-ref refs/heads/ refs/remotes/ --format='%(HEAD) %(color:yellow)%(refname:short) %(color:green)%(committerdate:relative)  %(color:blue)%(committername)  %(color:reset)%(contents:subject)' --sort=committerdate
 	c = commit
 	cm = commit -m 
 	co = checkout
@@ -41,7 +41,7 @@
 	pf = "! f() { git push --force; }; f"
 	cp = "! f() { git commit --message=\"$1\"; git push; }; f"
 	cpf = "! f() { git commit --message=\"$1\"; git push --force; }; f"
-	acpf = "! f() { git commit --all --message=\"$1\"; git push --force; }; f"
+	acpf = "! f() { git add --all; git commit --message=\"$1\"; git push --force; }; f"
 	amend = "! f() { git commit --amend; }; f"
 	mad = "! f() { git merge $1 --ff-only; git push; git branch -d $1; git push origin :$1; }; f"
 	wip = "! f() { msg=${1-WIP}; git commit --message=\"$msg\"; }; f"
