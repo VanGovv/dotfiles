@@ -1,6 +1,7 @@
 [push]
 	default = current
 	followTags = true
+	autoSetupRemote = true
 [log]
 	abbrevCommit = true
 	oneline = true
@@ -10,11 +11,12 @@
 	pretty = %C(yellow)%h %C(green)%cd %C(blue)%<(7)%aN%C(red)%d%C(reset) %s
 [core]
 	excludesfile = ~/.gitignore
+	editor = nano
 [fetch]
 	prune = true
+[submodule]
+	recurse = true
 [alias]
-	archiveBranch = "! f() { git fetch origin $1:$1; git branch -m $1 archive/$1; git push origin :$1 archive/$1; git branch -D archive/$1; }; f"
-	archiveB = "! f() { git fetch origin $1:$1; git branch -m $1 archive/$1; git push origin :$1 archive/$1; git branch -D archive/$1; }; f"
 	a = add
 	b = branch
 	bl = for-each-ref refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short) %(color:green)%(committerdate:relative)  %(color:blue)%(committername)  %(color:reset)%(contents:subject)' --sort=committerdate
@@ -30,8 +32,12 @@
 	m = merge
 	r = rebase
 	del = "! f() { git branch -D $1; git push origin :$1 }; f"
+	r1 = reset HEAD~1
 	ri = "! f() { git rebase -i ${1-HEAD~5}; }; f"
+	rc = rebase --continue
+	ra = rebase --abort
 	ds = "! f() { ref=${1-HEAD}; git diff $ref~1..$ref $2; }; f"
+	dsf = "! f() { ref=${1-HEAD}; git diff --name-status $ref~1..$ref $2; }; f"
 	rs = "! f() { ref=${1-1}; git reset HEAD~$ref $2; }; f"
 	s = "! f() { git status; echo; git log -n 1; }; f"
 	aa = "! f() { git add --all; git commit --amend --no-edit; }; f"
