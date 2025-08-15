@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.defaultProfile.linux": "/usr/bin/zsh",
+    "terminal.integrated.defaultProfile.osx": "/usr/bin/zsh",
+    "terminal.integrated.fontFamily": "MesloLGM Nerd Font"
+}
